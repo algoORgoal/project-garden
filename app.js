@@ -18,8 +18,14 @@ const axios = require('axios');
 const clientID = '5d2f350f3429d0008893';
 const clientSecret = '2a39092522d77f9b5507b49c14775348301c87c0';
 
+<<<<<<< HEAD
 // object to store user infromation
 let user = null;
+=======
+// store html
+const HtmlLib = require("./public/html");
+const HTML = new HtmlLib.init();
+>>>>>>> error code
 
 // main page
 <<<<<<< HEAD
@@ -78,7 +84,13 @@ app.use("/", (req, res)=>{
   } else {
     res.send(content);
     next();
+<<<<<<< HEAD
   }
+=======
+  }*/
+
+  res.send("test");
+>>>>>>> error code
 });
 
 // 사용자가 git-hub로그인 버튼을 눌렀을 때,
