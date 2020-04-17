@@ -12,7 +12,8 @@ const clientID = '5d2f350f3429d0008893';
 const clientSecret = '2a39092522d77f9b5507b49c14775348301c87c0';
 
 // store html
-const HTML = new Html();
+const HtmlLib = require("./public/html");
+const HTML = new HtmlLib.init();
 
 // main page
 app.use("/", (req, res)=>{
@@ -67,7 +68,7 @@ app.use("/", (req, res)=>{
     next();
   }*/
 
-  res.send(HTML.getHtml());
+  res.send("test");
 });
 
 // 사용자가 git-hub로그인 버튼을 눌렀을 때,
