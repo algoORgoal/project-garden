@@ -1,37 +1,41 @@
+/*
 module.exports = {
-  init : function HTML(){
-    this.title = "Project : Gardener";
-    this.metaList = [`charset = "utf-8"`,
-                    `name = "viewport" content="width=device-width, shrink-to-fit=no"`
-                  ];
-    this.stylesheestList = [`href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"`
+  init: function HTML() {
+    this.title = 'Project : Gardener';
+    this.metaList = [
+      `charset = "utf-8"`,
+      `name = "viewport" content="width=device-width, shrink-to-fit=no"`,
     ];
-    this.scriptList = [`src="https://code.jquery.com/jquery-3.4.1.slim.min.js" 
+    this.stylesheestList = [
+      `href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"`,
+    ];
+    this.scriptList = [
+      `src="https://code.jquery.com/jquery-3.4.1.slim.min.js" 
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"`,
       `src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" 
       crossorigin="anonymous"`,
       `src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" 
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"`
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"`,
     ];
 
-    this.getTitle = ()=>{
+    this.getTitle = () => {
       return `<title>${this.title}</title>`;
-    }
-    this.getMetas = ()=>{
+    };
+    this.getMetas = () => {
       let metas = ``;
-      for(let i = 0; i< this.metaList.length ; i++)
+      for (let i = 0; i < this.metaList.length; i++)
         metas += `<meta ${this.metaList[i]}>`;
       return metas;
-    }
-    this.getStylesheets = ()=>{
+    };
+    this.getStylesheets = () => {
       let stylesheets = ``;
-      for(let i = 0; i< this.stylesheestList.length; i++)
+      for (let i = 0; i < this.stylesheestList.length; i++)
         stylesheets += `<link rel="stylesheet" ${this.stylesheestList[i]}/>`;
       return stylesheets;
-    }
+    };
     // need to rebuild
-    this.getHeader = ()=>{
+    this.getHeader = () => {
       return `
       <header class="navbar navbar-expand-lg navbar-light bg-light row justify-content-center">
         <a href="/" class="navbar-brand badge badge-light col">
@@ -64,8 +68,8 @@ module.exports = {
         </nav>
       </header>
       `;
-    }
-    this.getContent =()=>{
+    };
+    this.getContent = () => {
       return `
         <section class="min-vw-100 min-vh-80">
           ${this.content}
@@ -73,21 +77,21 @@ module.exports = {
           ${this.metaList[0]}
         </section>
       `;
-    }
-    this.getFooter = ()=>{
+    };
+    this.getFooter = () => {
       return `
         <footer class="fixed-bottom badge badge-light">
           team Phoenix's Project : Gardener
         </footer>
       `;
-    }
-    this.getScripts = ()=>{
+    };
+    this.getScripts = () => {
       let scripts = ``;
-      for(let i = 0; this.scriptList.length; i++)
+      for (let i = 0; this.scriptList.length; i++)
         scripts += `<script ${this.scriptList[i]} />`;
       return scripts;
-    } 
-    this.getHtml = ()=>{
+    };
+    this.getHtml = () => {
       return `
         <!doctype html>
         <html lang="ko">
@@ -105,5 +109,125 @@ module.exports = {
         </html>
       `;
     };
-  }
+  },
 };
+*/
+
+//  closure-based object creation
+//  has to discuss how it works contrary to regular javascript constructor
+module.exports = {
+  init: function HTML() {
+    const title = 'Project : Gardener';
+    const metaList = [
+      `charset = "utf-8"`,
+      `name = "viewport" content="width=device-width, shrink-to-fit=no"`,
+    ];
+    const stylesheestList = [
+      `href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"`,
+    ];
+    const scriptList = [
+      `src="https://code.jquery.com/jquery-3.4.1.slim.min.js" 
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"`,
+      `src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" 
+      crossorigin="anonymous"`,
+      `src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" 
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"`,
+    ];
+
+    return {
+      getTitle: function () {
+        return `<title>${title}</title>`;
+      },
+      getMetas: function () {
+        let metas = ``;
+        for (let i = 0; i < metaList.length; i++)
+          metas += `<meta ${metaList[i]}>`;
+        return metas;
+      },
+      getStylesheets: function () {
+        let stylesheets = ``;
+        for (let i = 0; i < stylesheestList.length; i++)
+          stylesheets += `<link rel="stylesheet" ${stylesheestList[i]}/>`;
+        return stylesheets;
+      },
+      // need to rebuild
+      getHeader: function () {
+        return `
+      <header class="navbar navbar-expand-lg navbar-light bg-light row justify-content-center">
+        <a href="/" class="navbar-brand badge badge-light col">
+          <h4>Project : Gardener</h4>
+        </a>
+        <nav class="col-10">
+          <ul class="navbar-nav">
+            <li class="nav-item input-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Search anything~!"
+              />
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button">
+                  search
+                </button>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">World</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Garden</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">guest</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      `;
+      },
+      getContent: function () {
+        return `
+        <section class="min-vw-100 min-vh-80">
+          ${content}
+
+          ${metaList[0]}
+        </section>
+      `;
+      },
+      getFooter: function () {
+        return `
+        <footer class="fixed-bottom badge badge-light">
+          team Phoenix's Project : Gardener
+        </footer>
+      `;
+      },
+      getScripts: function () {
+        let scripts = ``;
+        for (let i = 0; this.scriptList.length; i++)
+          scripts += `<script ${this.scriptList[i]} />`;
+        return scripts;
+      },
+      getHtml: function () {
+        return `
+        <!doctype html>
+        <html lang="ko">
+          <head>
+            ${this.getTitle()}
+            ${this.getMetas()}
+            ${this.getStylesheets()}
+          </head>
+          <body>
+            ${this.getHeader()}
+            ${this.getContent()}
+            ${this.getFooter()}
+            ${this.getScripts()}
+          </body>
+        </html>
+      `;
+      },
+    };
+  },
+};
+/*
+ */
