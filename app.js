@@ -2,11 +2,14 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
+<<<<<<< HEAD
 // basic page structure
 let username = `guest`;
 let content = ``;
 const html = ``;
 
+=======
+>>>>>>> asdf
 // for Git-hub APIs
 //Import the axios library, to make HTTP requests
 const axios = require('axios');
@@ -15,12 +18,21 @@ const axios = require('axios');
 const clientID = '5d2f350f3429d0008893';
 const clientSecret = '2a39092522d77f9b5507b49c14775348301c87c0';
 
+// object to store user infromation
+let user = null;
+
 // main page
+<<<<<<< HEAD
 app.use('/main', (req, res) => {
   // where part of html used to
 
   // go to login page
   if (username == `guest`) {
+=======
+app.use("/", (req, res)=>{
+  // go to login page
+  if(user == null){
+>>>>>>> asdf
     const redirectionURL = `https://github.com/login/oauth/authorize?client_id=${clientID}`;
     content += `
     <div class="container-fluid">
@@ -109,10 +121,15 @@ app.use('/login_2', (req, res) => {
       //Once we get the response(which has many fields)
       //Documented here: https://developer.github.com/v3/users/#get-the-authenticated-user
 
+<<<<<<< HEAD
       //send username nested by tag
       username = person.data.name;
       res.set('Content-Type', 'text/html');
       res.send(`<h4>Welcome ${username}</h4>`);
+=======
+      // set profile name
+      user = getUser(res);
+>>>>>>> asdf
     });
 });
 
